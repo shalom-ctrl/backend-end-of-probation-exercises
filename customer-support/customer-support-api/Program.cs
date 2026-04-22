@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemo
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IKnowledgeBaseRepository, KnowledgeBaseRepository>();
 var app = builder.Build();
+
 /*
 using(var scope = app.Services.CreateScope())       
 {
@@ -41,7 +42,7 @@ using(var scope = app.Services.CreateScope())
         dbContext.SaveChanges();
     }
 }
-
+*/
 using(var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -68,7 +69,8 @@ using(var scope = app.Services.CreateScope())
         dbContext.KnowledgeBaseArticles.AddRange(article1, article2);
         dbContext.SaveChanges();
     }
-} */
+} 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
