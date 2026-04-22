@@ -14,6 +14,11 @@ namespace customer_support_api.Repository
             _context = context;
         }
 
+        private bool HasConflict(KnowledgeBaseArticle article)
+        {
+            return _context.KnowledgeBaseArticles.Any(a => a.Title == article.Title && a.Id != article.Id);
+        }
+
         public void AddArticle(KnowledgeBaseArticleAddDto dto)
         {
             var article = new KnowledgeBaseArticle
@@ -25,6 +30,10 @@ namespace customer_support_api.Repository
                 Tags = dto.Tags,
                 CreatedAt = DateTime.UtcNow
             };
+            if(HasConflict(article))    
+            {
+                throw new Exception("An article with the same title already exists.");
+            }
             _context.KnowledgeBaseArticles.Add(article);
             _context.SaveChanges();
         }

@@ -38,7 +38,7 @@ namespace customer_support_api.Controllers
         [HttpGet("daterange")]
         public IActionResult GetTicketsByDateRange(DateTime date)
         {
-            var tickets = _ticketRepository.GetTicketByDateRange(date);
+            var tickets = _ticketRepository.GetTicketByDateRange(date).OrderBy(t => t.CreatedAt).ToList();
             return Ok(tickets);
         }
 

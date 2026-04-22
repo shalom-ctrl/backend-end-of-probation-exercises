@@ -15,7 +15,7 @@ namespace customer_support_api.Controllers
         {
             _knowledgeBase = knowledgeBase;
         }
-
+        
         [HttpGet]
         public IActionResult GetAllArticles()
         {
@@ -89,6 +89,6 @@ namespace customer_support_api.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }
+        } 
     }
 }
