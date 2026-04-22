@@ -14,6 +14,10 @@ namespace customer_support_api.Repository
         {
             _dbContext = dbContext;
         }
+        private bool HasConflict(Ticket ticket)
+        {
+            return _dbContext.Tickets.Any(t => t.Subject == ticket.Subject && t.Id != ticket.Id);
+        }
 
         public void AddTicket(TicketAddDto dto)
         {
@@ -25,6 +29,10 @@ namespace customer_support_api.Repository
                 CreatedAt = dto.CreatedAt,
                 status = dto.status
             };
+            if(HasConflict(newTicket))
+            {
+                throw new InvalidOperationException("A ticket with the same subject and Id already exists.");
+            }
 
             _dbContext.Tickets.Add(newTicket);
             _dbContext.SaveChanges();

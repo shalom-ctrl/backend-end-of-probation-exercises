@@ -32,7 +32,7 @@ namespace customer_support_api.Repository
             };
             if(HasConflict(article))    
             {
-                throw new Exception("An article with the same title already exists.");
+                throw new Exception("An article with the same title and Idalready exists.");
             }
             _context.KnowledgeBaseArticles.Add(article);
             _context.SaveChanges();
