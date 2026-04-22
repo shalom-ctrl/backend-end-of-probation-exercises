@@ -10,5 +10,10 @@ namespace customer_support_api.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public Status status { get; set; }
         public string Type { get; set; }
+
+        public virtual void TicketType()
+        {
+            Console.WriteLine("Creating a Ticket");
+        }
     }
 }

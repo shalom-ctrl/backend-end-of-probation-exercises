@@ -9,5 +9,11 @@ namespace customer_support_api.Models
         public string FeatureName { get; set; }
         public string FeatureType { get; set; }
         public Priority Priority { get; set; }
+
+        public override void TicketType()
+        {
+            Console.WriteLine("Creating a Feature Request Ticket");
+            base.TicketType();
+        }
     }
 }
