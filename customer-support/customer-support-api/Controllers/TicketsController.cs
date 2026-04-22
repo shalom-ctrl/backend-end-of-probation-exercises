@@ -38,7 +38,7 @@ namespace customer_support_api.Controllers
         [HttpGet("daterange")]
         public IActionResult GetTicketsByDateRange(DateTime date)
         {
-            var tickets = _ticketRepository.GetTicketByDateRange(date).OrderBy(t => t.CreatedAt).ToList();
+            var tickets = _ticketRepository.GetTicketByDateRange(date).OrderByDescending(t => t.CreatedAt).ToList();
             return Ok(tickets);
         }
 
@@ -46,6 +46,13 @@ namespace customer_support_api.Controllers
         public IActionResult GetTicketsByType(TicketType type)
         {
             var tickets = _ticketRepository.GetTicketByType(type);
+            return Ok(tickets);
+        }
+
+        [HttpGet("status")]
+        public IActionResult GetTicketsByStatus(Status status)
+        {
+            var tickets = _ticketRepository.GetTicketByStatus(status);
             return Ok(tickets);
         }
 
