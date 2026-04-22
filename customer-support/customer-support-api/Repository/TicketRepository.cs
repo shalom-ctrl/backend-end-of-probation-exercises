@@ -74,9 +74,9 @@ namespace customer_support_api.Repository
             return tickets;
         }
 
-        public List<Ticket> GetTicketByType(string type)
+        public List<Ticket> GetTicketByType(TicketType type)
         {
-            var tickets = _dbContext.Tickets.Where(t => t.Subject.Contains(type)).ToList();
+            var tickets = _dbContext.Tickets.Where(t => t.type == type).ToList();
             return tickets;
         }
 

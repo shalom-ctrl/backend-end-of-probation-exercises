@@ -16,7 +16,7 @@ builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IKnowledgeBaseRepository, KnowledgeBaseRepository>();
 var app = builder.Build();
 
-/*
+
 using(var scope = app.Services.CreateScope())       
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -28,7 +28,8 @@ using(var scope = app.Services.CreateScope())
             Subject = "Issue with login",
             Description = "Unable to login with correct credentials.",
             CreatedAt = DateTime.UtcNow,
-            status = customer_support_api.Enums.Status.Open
+            status = customer_support_api.Enums.Status.Open,
+            type = customer_support_api.Enums.TicketType.AccountIssue
         };
         var ticket2 = new customer_support_api.Models.Ticket
         {
@@ -36,13 +37,14 @@ using(var scope = app.Services.CreateScope())
             Subject = "Feature request: Dark mode",
             Description = "It would be great to have a dark mode option in the app.",
             CreatedAt = DateTime.UtcNow,
-            status = customer_support_api.Enums.Status.Open
+            status = customer_support_api.Enums.Status.Open,
+            type = customer_support_api.Enums.TicketType.FeatureRequest
         };
         dbContext.Tickets.AddRange(ticket1, ticket2);
         dbContext.SaveChanges();
     }
 }
-*/
+
 using(var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

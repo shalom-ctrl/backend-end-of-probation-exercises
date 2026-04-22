@@ -9,7 +9,7 @@ namespace customer_support_api.Models
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public Status status { get; set; }
-        public string Type { get; set; }
+        public TicketType type { get; set; }
 
         public virtual void TicketType()
         {

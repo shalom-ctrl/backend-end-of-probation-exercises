@@ -10,7 +10,7 @@ namespace customer_support_api.Interface
         Ticket GetTicketById(Guid id);
         List<Ticket> GetTicketByStatus(Status status);
         List<Ticket> GetTicketByDateRange(DateTime date);
-        List<Ticket> GetTicketByType(string type);
+        List<Ticket> GetTicketByType(TicketType type);
         void AddTicket(TicketAddDto dto);
         void UpdateTicket(Guid id, TicketUpdateDto dto);
         bool DeleteTicket(Guid id);

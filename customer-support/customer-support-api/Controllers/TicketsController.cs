@@ -43,7 +43,7 @@ namespace customer_support_api.Controllers
         }
 
         [HttpGet("type")]
-        public IActionResult GetTicketsByType(string type)
+        public IActionResult GetTicketsByType(TicketType type)
         {
             var tickets = _ticketRepository.GetTicketByType(type);
             return Ok(tickets);
