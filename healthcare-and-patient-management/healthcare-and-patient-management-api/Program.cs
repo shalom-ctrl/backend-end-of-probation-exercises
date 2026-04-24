@@ -22,13 +22,33 @@ using(var scope =  app.ApplicationServices.GetRequiredService<ApplicationDbConte
     {
         var doctor1 = new Doctor
         {
-            DoctorId = 1,
+            DoctorId = Guid.newGuid(),
             Speciality = healthcare_and_patient_management_api.Enums.Speciality.Radiology,
             FirstName = John,
             LastName = Doe,
             DateAdded = DateTime.Now,
         };
-       
+        var doctor2 = new Doctor
+        {
+            DoctorId = Guid.newGuid(),
+            Speciality = healthcare_and_patient_management_api.Enums.Speciality.Cardiology,
+            FirstName = Jane,
+            LastName = Doe,
+            DateAdded = DateTime.UtcNow,
+        };
+        var doctor3 = new Doctor
+        {
+            DoctorId = Guid.newGuid(),
+            Speciality = healthcare_and_patient_management_api.Enums.Speciality.Dental,
+            FirstName = Sam,
+            LastName = Smith,
+            DateAdded = DateTime.UtcNow,
+        };
+
+        _dbContext.Add(doctor1);
+        _dbContext.Add(doctor2);
+        _dbContext.Add(doctor3);
+        _dbContext.SaveChanges();
     }
 }
 // Configure the HTTP request pipeline.

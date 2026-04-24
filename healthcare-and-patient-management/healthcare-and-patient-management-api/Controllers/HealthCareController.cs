@@ -47,7 +47,7 @@ namespace healthcare_and_patient_management_api.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult UpdateAppointment(UpdateAppointmentDto dto, Guid id)
         {
             var appointment = _healthcareService.UpdateAppointment(dto, id);
