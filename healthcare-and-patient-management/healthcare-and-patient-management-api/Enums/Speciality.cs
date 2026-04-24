@@ -1,6 +1,11 @@
 ﻿namespace healthcare_and_patient_management_api.Enums
 {
-    public class Speciality
+    public enum Speciality
     {
+        Cardiology,
+        Pediatrics,
+        Gynaecology,
+        Dental,
+        Radiology
     }
 }

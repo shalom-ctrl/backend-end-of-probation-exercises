@@ -2,5 +2,7 @@
 {
     public class MedicalRecord
     {
+        public List<string> Diagnosis { get; set; }
+        public Prescription prescription { get; set; }
     }
 }

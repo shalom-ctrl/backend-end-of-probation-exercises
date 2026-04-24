@@ -2,5 +2,8 @@
 {
     public class Prescription
     {
+        public string MedicationName { get; set; }
+        public int Dosage { get; set; }
+        public int DurationDays { get; set; }
     }
 }
